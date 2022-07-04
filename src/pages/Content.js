@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	font: {
 		background:
-			"linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 20%)",
+			"linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 20%)",
 		height: "50vh",
 		position: "absolute",
 		top: "0%",
@@ -297,6 +297,15 @@ export default function Content() {
 
 	};
 
+	const [radios, setRadios] = useState([])
+	const getRadios = () => {
+		axiosInstance
+			.get("api/radio/getall/",)
+			.then((json) => {
+				setRadios(json.data);
+			});
+	}
+
 
 
 
@@ -308,6 +317,7 @@ export default function Content() {
 		getProduits();
 		getJournaux();
 		getChaines();
+		getRadios();
 	}, []);
 
 
@@ -317,7 +327,9 @@ export default function Content() {
 	const styles = useStyles();
 
 	return (
+
 		<div>
+
 			<TabPanel value={1}>
 				<Container style={{ marginTop: "3vh", paddingBottom: "3vh" }}>
 
@@ -547,8 +559,22 @@ export default function Content() {
 														<Typography gutterBottom variant="subtitle2">
 															&nbsp; <strong>{new Date(pub.date_creation).toLocaleDateString([], { year: 'numeric', month: 'long', day: 'numeric' })}</strong>
 														</Typography>
+														<Typography color="white" variant="subtitle2" sx={{ margintTop: '2vh' }}>
+															<strong style={{ color: "#4fc3f7" }}>Code Panneau :</strong>
+															&nbsp; <strong>{pub.panneau_detail.code} </strong>
+														</Typography>
+														<Typography color="white" variant="subtitle2">
+															<strong style={{ color: "#4fc3f7" }}>Face de la pub:</strong>
+															&nbsp; <strong>{pub.circulation ? 'A' : 'B'} </strong>
+														</Typography>
+														<Typography color="white" variant="subtitle2">
+															<strong style={{ color: "#4fc3f7" }}>Code de la pub:</strong>
+															&nbsp; <strong>{pub.code} </strong>
+														</Typography>
+
 													</Grid>
-													<Grid item sx={{ marginTop: "15vh" }}>
+													<Grid item sx={{ marginTop: "3vh" }}>
+
 														<Typography color="#4fc3f7" variant="subtitle2">
 															<FaSolarPanel />
 															&nbsp; <strong>{pub.nom_annonceur} </strong>
@@ -608,6 +634,48 @@ export default function Content() {
 										<CardActionArea
 											onClick={() => {
 												navigate("/jour", {
+													state: {
+														detail: { id: row.id, nom: row.nom },
+													},
+												});
+												//gotoVideo(row)
+											}}
+										>
+											<CardMedia
+												height="180"
+												component="img"
+												image={row.image}
+												title="title"
+												controls
+											/>
+										</CardActionArea>
+										<CardContent>
+											<Typography gutterBottom variant="h5" component="div">
+												{row.nom}
+											</Typography>
+
+										</CardContent>
+
+									</Card>
+								</Grid>
+							))}
+						</Grid>
+
+					</Stack>
+				</Container>
+			</TabPanel>
+			<TabPanel value={4}>
+				<Container style={{ marginTop: "3vh", paddingBottom: "3vh" }}>
+
+					<Stack spacing={2} justifyContent="center" alignItems="center" mt={1} mb={2}>
+
+						<Grid container spacing={2} sx={{ marginTop: "2vh" }}>
+							{radios.map((row) => (
+								<Grid item xs={12} sm={6} md={4}>
+									<Card sx={{ maxWidth: 600 }}>
+										<CardActionArea
+											onClick={() => {
+												navigate("/jourradio", {
 													state: {
 														detail: { id: row.id, nom: row.nom },
 													},

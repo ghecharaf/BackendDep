@@ -116,7 +116,8 @@ export default function ArticleLink() {
 
                                     <Typography variant="subtitle2">
                                         <strong>Langue :</strong>{" "}
-                                        {article.language == "FR" ? "Français" : "arabe"}
+                                        {article.language == 'FR' ? 'Français' : article.language == 'AR' ? 'Arabe' : "Arabe + Français"}
+
                                     </Typography>
                                     <Typography variant="subtitle2">
                                         <strong>Page précédente :</strong> {article.page_precedente}

@@ -207,7 +207,7 @@ export default function Edition() {
 									>
 										<CardMedia
 											component="img"
-											height={200}
+											height={500}
 											image={item.image}
 										/>
 									</CardActionArea>

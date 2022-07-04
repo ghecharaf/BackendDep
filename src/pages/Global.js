@@ -20,6 +20,10 @@ import Jour from './Jour';
 import PubEtProgramme from './Programme';
 import Edition from './Edition';
 import Articles from './Articles';
+import JourRadio from './JourRadio';
+import PubEtProgrammeRadio from './ProgrammeRadio';
+import AudioInfo from './AudioInfo';
+import PubLiciteLink from './PubliciteLink';
 
 const theme = createTheme({
     typography: {
@@ -46,9 +50,16 @@ export default function Global() {
                     <Route path="jour" exact element={<App> <Jour></Jour></App>}></Route>
                     <Route path="programme" exact element={<App> <PubEtProgramme></PubEtProgramme></App>}></Route>
 
+                    <Route path="jourradio" exact element={<App> <JourRadio></JourRadio></App>}></Route>
+                    <Route path="programmeradio" exact element={<App> <PubEtProgrammeRadio></PubEtProgrammeRadio></App>}></Route>
+                    <Route path="audioinfo" exact element={<App> <AudioInfo></AudioInfo></App>}></Route>
+
+
+
                     <Route path="pubinfo" exact element={<App> <PubInfo></PubInfo></App>}></Route>
                     <Route path="article/link/:id" exact element={<App> <ArticleLink></ArticleLink></App>}></Route>
                     <Route path="pub/link/:id" exact element={<App> <PubLink></PubLink></App>}></Route>
+                    <Route path="publicite/link/:id" exact element={<App> <PubLiciteLink></PubLiciteLink></App>}></Route>
                     <Route path='*' element={<App><PageNotFound></PageNotFound></App>}></Route>
 
                 </Routes>

@@ -122,13 +122,19 @@ export default function ArticleAffichage(props) {
 
 										<Typography variant="subtitle2">
 											<strong>Langue :</strong>{" "}
-											{article.language == "FR" ? "Français" : "arabe"}
+											{article.language == 'FR' ? 'Français' : article.language == 'AR' ? 'Arabe' : "Arabe + Français"}
 										</Typography>
 										<Typography variant="subtitle2">
 											<strong>Page précédente :</strong> {article.page_precedente}
 										</Typography>
 										<Typography variant="subtitle2">
 											<strong>Page suivante :</strong> {article.page_suivante}
+										</Typography>
+										<Typography variant="subtitle2">
+											<strong>Numero du page :</strong> {article.num_page}
+										</Typography>
+										<Typography variant="subtitle2">
+											<strong>Couleur :</strong> {article.couleur}
 										</Typography>
 									</div>
 

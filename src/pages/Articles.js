@@ -301,6 +301,8 @@ export default function Articles() {
                                                 >
                                                     <MenuItem value={'AR'}>Arab</MenuItem>
                                                     <MenuItem value={'FR'}>Francais</MenuItem>
+                                                    <MenuItem value={'AF'}>Arab + Francais</MenuItem>
+
                                                 </TextField>
                                             </Grid>
 
@@ -480,7 +482,9 @@ export default function Articles() {
                                                                     <Grid item >
                                                                         <Typography color="primary" gutterBottom variant="subtitle2" >
 
-                                                                            &nbsp; {article.language == 'FR' ? 'Français' : 'arabe'}
+                                                                            &nbsp;
+                                                                            {article.language == 'FR' ? 'Français' : article.language == 'AR' ? 'Arabe' : "Arabe + Français"}
+
                                                                         </Typography>
                                                                     </Grid>
                                                                 </Grid>

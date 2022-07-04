@@ -31,6 +31,7 @@ export default function Tabs(props) {
                         <Tab label="Revue de press" value={1} />
                         <Tab label="Suivie des panneaux" value={2} />
                         <Tab label="Suivie des chaines télévisionaires" value={3} />
+                        <Tab label="Suivie des radios" value={4} />
                     </TabList>
                 </AppBar>
                 {props.children}
