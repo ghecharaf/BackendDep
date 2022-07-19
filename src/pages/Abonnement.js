@@ -290,6 +290,12 @@ export default function Abonnement() {
 		pigesFinale();
 
 		ExoprtToExcel();
+	}, []);
+
+	React.useEffect(() => {
+		pigesFinale();
+
+		ExoprtToExcel();
 	}, [programme]);
 
 	return (

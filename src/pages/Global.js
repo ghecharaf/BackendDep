@@ -24,6 +24,10 @@ import JourRadio from './JourRadio';
 import PubEtProgrammeRadio from './ProgrammeRadio';
 import AudioInfo from './AudioInfo';
 import PubLiciteLink from './PubliciteLink';
+import Tv from './Tv';
+import JournalPage from './JournalPage';
+import Panneau from './Panneau';
+import Radio from './Radio';
 
 const theme = createTheme({
     typography: {
@@ -37,7 +41,12 @@ export default function Global() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/login" exact element={<Login />} />
-                    <Route path="content" exact element={<App> <Tabs><Content></Content></Tabs></App>}></Route>
+                    <Route path="content" exact element={<App> <Content></Content></App>}></Route>
+                    <Route path="tv" exact element={<App> <Tv></Tv></App>}></Route>
+                    <Route path="journal" exact element={<App> <JournalPage></JournalPage></App>}></Route>
+                    <Route path="panneau" exact element={<App> <Panneau></Panneau></App>}></Route>
+                    <Route path="radio" exact element={<App> <Radio></Radio></App>}></Route>
+
                     <Route path="edition" exact element={<App> <Edition></Edition></App>}></Route>
                     <Route path="article" exact element={<App> <Articles></Articles></App>}></Route>
                     <Route path="articleinfo" exact element={<App> <ArticleAffichage></ArticleAffichage></App>}></Route>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Typography, Card, CardActionArea, CardContent, CardMedia, Grid, SvgIcon, IconButton, Stack, Collapse, TextField, MenuItem, Autocomplete, Button, Pagination, Hidden } from "@mui/material";
+import { Typography, Card, CardActionArea, CardContent, CardMedia, Grid, SvgIcon, IconButton, Stack, Collapse, TextField, MenuItem, Autocomplete, Button, Pagination, Hidden, CardHeader, Divider } from "@mui/material";
 import { useState, useEffect } from "react";
 import TabPanel from "@mui/lab/TabPanel";
 import axiosInstance from "../Axios/axios";
@@ -18,7 +18,7 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { Box } from "@mui/system";
 import TvIcon from '@mui/icons-material/Tv';
-
+import ArticleIcon from '@mui/icons-material/Article';
 
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -30,6 +30,16 @@ import { format } from 'date-fns'
 import AddIcon from '@mui/icons-material/Add';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Journal from "./Journal";
+
+import Graph from './Login/graph.png'
+import Graph2 from './Login/graph2.png'
+import Graph3 from './Login/graph3.png'
+import Graph4 from './Login/graph4.png'
+
+
+import ArtTrackIcon from '@mui/icons-material/ArtTrack';
+import RadioIcon from '@mui/icons-material/Radio';
+
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -330,7 +340,144 @@ export default function Content() {
 
 		<div>
 
-			<TabPanel value={1}>
+			<Container sx={{ marginTop: "2vh", marginBottom: "2vh" }}>
+				<Grid container spacing={3}>
+					<Grid item xs={4}>
+						<Card>
+							<CardActionArea onClick={() => {
+								navigate('/journal')
+							}}>
+								<Stack direction="row"
+									justifyContent="center"
+									alignItems="center">
+									<CardMedia
+
+										component="img"
+										height="210"
+										image={Graph}
+										alt="journal"
+									>
+
+									</CardMedia>
+									<ArticleIcon sx={{ fontSize: 100, position: 'absolute', color: "white" }} />
+
+								</Stack>
+
+							</CardActionArea>
+
+							<Grid justifyContent="space-between" // Add it here :)
+								container
+								direction="row"
+								alignItems="center">
+								<CardHeader title={'Journal'} />
+
+							</Grid>
+
+
+						</Card>
+					</Grid>
+					<Grid item xs={4}>
+						<Card>
+							<CardActionArea onClick={() => {
+								navigate('/panneau')
+							}}>
+								<Stack direction="row"
+									justifyContent="center"
+									alignItems="center">
+									<CardMedia
+										component="img"
+										height="210"
+										image={Graph2}
+										alt="Panneau"
+									>
+
+									</CardMedia>
+									<ArtTrackIcon sx={{ fontSize: 100, position: 'absolute', color: "white" }} />
+
+								</Stack>
+							</CardActionArea>
+
+							<Grid justifyContent="space-between" // Add it here :)
+								container
+								direction="row"
+								alignItems="center">
+								<CardHeader title={'Panneau'} />
+
+							</Grid>
+
+
+						</Card>
+					</Grid>
+					<Grid item xs={4}>
+						<Card>
+							<CardActionArea onClick={() => {
+								navigate('/tv')
+							}}>
+								<Stack direction="row"
+									justifyContent="center"
+									alignItems="center">
+									<CardMedia
+										component="img"
+										height="210"
+										image={Graph3}
+										alt="Tv"
+									>
+
+
+									</CardMedia>
+									<TvIcon sx={{ fontSize: 100, position: 'absolute', color: "white" }} />
+
+								</Stack>
+							</CardActionArea>
+
+							<Grid justifyContent="space-between" // Add it here :)
+								container
+								direction="row"
+								alignItems="center">
+								<CardHeader title={'Télévision'} />
+
+							</Grid>
+
+
+						</Card>
+					</Grid>
+					<Grid item xs={4}>
+						<Card>
+							<CardActionArea onClick={() => {
+								navigate('/radio')
+							}}>
+								<Stack direction="row"
+									justifyContent="center"
+									alignItems="center">
+									<CardMedia
+										component="img"
+										height="210"
+										image={Graph4}
+										alt="Radio"
+									>
+
+									</CardMedia>
+									<RadioIcon sx={{ fontSize: 100, position: 'absolute', color: "white" }} />
+
+								</Stack>
+							</CardActionArea>
+
+
+							<Grid justifyContent="space-between" // Add it here :)
+								container
+								direction="row"
+								alignItems="center">
+								<CardHeader title={'Radio'} />
+
+							</Grid>
+
+
+						</Card>
+					</Grid>
+				</Grid>
+			</Container>
+
+			{/* <TabPanel value={1}>
 				<Container style={{ marginTop: "3vh", paddingBottom: "3vh" }}>
 
 					<Journal></Journal>
@@ -705,7 +852,7 @@ export default function Content() {
 
 					</Stack>
 				</Container>
-			</TabPanel>
+			</TabPanel> */}
 		</div >
 	);
 }
